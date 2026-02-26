@@ -7,3 +7,4 @@ class GraphState(TypedDict):
     architecture:Optional[ArchitectureSchema]
     code: Optional[dict]
     reflection: Optional[dict]
+    memory: Optional[str]
