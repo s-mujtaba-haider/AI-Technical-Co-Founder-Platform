@@ -1,2 +1,14 @@
 .env
 .env
+venv
+venv
+.venv
+.VENV
+VENV
+
+env
+ENV
+.ENV
+
+venv
+venv
