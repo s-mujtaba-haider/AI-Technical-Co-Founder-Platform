@@ -10,7 +10,7 @@ llm = ChatOpenAI(
 
 def planner_node(state):
     idea = state["idea"]
-    memory = state["memory", ""]
+    memory = state["memory"] if "memory" in state else ""
     
     structured_llm = llm.with_structured_output(PlanSchema)
     
@@ -22,8 +22,11 @@ def planner_node(state):
         Startup Idea:
         {idea}
         
-        Relevant Memory:
+        Relevant Context (If Useful):
         {memory}
+        
+        Generate a structured startup plan.
+        Be concise and structured.
         """
     )
     

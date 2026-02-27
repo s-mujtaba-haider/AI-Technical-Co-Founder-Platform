@@ -32,7 +32,7 @@ def reflection_node(state):
     }}
     """
     
-    structured_llm = llm.with_structured_output(ReflectionSchema)
+    structured_llm = llm.with_structured_output(ReflectionSchema, method="json_mode")
     
     result = structured_llm.invoke(prompt)
     

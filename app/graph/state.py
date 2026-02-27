@@ -8,3 +8,6 @@ class GraphState(TypedDict):
     code: Optional[dict]
     reflection: Optional[dict]
     memory: Optional[str]
+    logs: Optional[str]
+    log_analysis: Optional[str]
+    optimization: Optional[str]

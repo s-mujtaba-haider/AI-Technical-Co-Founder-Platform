@@ -12,6 +12,8 @@ llm = ChatOpenAI(
 
 def architect_node(state):
     plan = state["plan"]
+    memory = state["memory"]
+    
     structured_llm = llm.with_structured_output(ArchitectureSchema)
     
     result = structured_llm.invoke(
@@ -22,6 +24,12 @@ def architect_node(state):
         
         Startup Plan:
         {plan}
+        
+        Relevant Technical Knowledge:
+        {memory}
+        
+        Design the technical architecture.
+        Be concise and production-ready.
         """
     )
     

@@ -32,7 +32,7 @@ class MemoryService:
         self._save()
         return self.store
     
-    def search(self, query, k=4):
+    def search(self, query, k=2):
         if not self.store:
             return []
         return self.store.similarity_search(query, k=k)
