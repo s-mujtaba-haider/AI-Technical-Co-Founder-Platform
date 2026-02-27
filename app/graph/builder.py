@@ -11,7 +11,6 @@ from app.graph.nodes.optimizer import optimizer_node
 def route_reflection(state):
     reflection = state["reflection"]
 
-    # support both plain dicts and Pydantic-like objects
     if isinstance(reflection, dict):
         quality = reflection.get("quality")
     else:
