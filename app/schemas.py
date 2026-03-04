@@ -68,3 +68,25 @@ class CodegenSchema(BaseModel):
             ]
         }
     }
+
+class AgentOutput(BaseModel):
+    insight: str
+    score: int
+    notes: str
+
+    model_config = {
+        "json_schema_extra": {
+            "required": ["insight", "score", "notes"]
+        }
+    }
+
+class AggregatorOutput(BaseModel):
+    recommendation: str
+    confidence: int
+    summary: str
+
+    model_config = {
+        "json_schema_extra": {
+            "required": ["recommendation", "confidence", "summary"]
+        }
+    }

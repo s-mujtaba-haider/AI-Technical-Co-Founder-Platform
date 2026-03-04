@@ -11,12 +11,13 @@ graph = build_graph()
 
 class IdeaInput(BaseModel):
     idea: str
-    
+
 @app.post("/generate")
 def generate(data: IdeaInput):
     result = graph.invoke({
         "idea": data.idea,
         "plan": None,
+        "swarm": None,
         "architecture": None,
         "codegen": None
     })
@@ -24,6 +25,7 @@ def generate(data: IdeaInput):
     return {
         "idea": result["idea"],
         "plan": result["plan"].model_dump(),
+        "swarm": result["swarm"],
         "architecture": result["architecture"].model_dump(),
         "codegen": result["code"]
     }
@@ -42,7 +44,6 @@ async def upload(file: UploadFile = File(...)):
     memory.load_or_create(documents)
     
     return {"status": "stored", "chunks": len(documents)}
-
 
 @app.get("/search")
 def search(q: str):

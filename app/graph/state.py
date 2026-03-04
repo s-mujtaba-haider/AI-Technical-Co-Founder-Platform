@@ -11,3 +11,4 @@ class GraphState(TypedDict):
     logs: Optional[str]
     log_analysis: Optional[str]
     optimization: Optional[str]
+    swarm: Optional[Dict]
