@@ -37,11 +37,11 @@ def build_graph():
 
     builder.add_node("idea_validator", idea_validator)
     builder.add_node("market_analyst", market_analyst)
-    builder.add_node("competitor", competitor_researcher)
-    builder.add_node("pricing", pricing_strategist)
-    builder.add_node("architect_agent", technical_architect)
-    builder.add_node("security", security_analyst)
-    builder.add_node("devops", devops_advisor)
+    builder.add_node("competitor_researcher", competitor_researcher)
+    builder.add_node("pricing_strategist", pricing_strategist)
+    builder.add_node("technical_architect", technical_architect)
+    builder.add_node("security_analyst", security_analyst)
+    builder.add_node("devops_advisor", devops_advisor)
 
     builder.add_node("aggregator", aggregator_node)
 
@@ -56,12 +56,13 @@ def build_graph():
     builder.set_entry_point("idea_validator")
 
     builder.add_edge("idea_validator", "market_analyst")
-    builder.add_edge("market_analyst", "competitor")
-    builder.add_edge("competitor", "pricing")
-    builder.add_edge("pricing", "architect_agent")
-    builder.add_edge("architect_agent", "security")
-    builder.add_edge("security", "devops")
-    builder.add_edge("devops", "aggregator")
+    builder.add_edge("market_analyst", "competitor_researcher")
+    builder.add_edge("competitor_researcher", "pricing_strategist")
+    builder.add_edge("pricing_strategist", "technical_architect")
+    builder.add_edge("technical_architect", "security_analyst")
+    builder.add_edge("security_analyst", "devops_advisor")
+    builder.add_edge("devops_advisor", "aggregator")
+
 
     builder.add_edge("aggregator", "memory")
     builder.add_edge("memory", "planner")
